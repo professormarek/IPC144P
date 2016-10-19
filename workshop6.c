@@ -13,7 +13,7 @@ force the user to enter a number between minimum and maximum inclusive
 return the chosen number
 */
 int validateInput(int minimum, int maximum){
-	int choice = minimum - 1;
+	int choice = 0;
 	printf("Enter an integer (%d to %d): ", minimum, maximum);
 	scanf("%d", &choice);
 	while(choice < minimum || choice > maximum ) {
