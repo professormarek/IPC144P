@@ -3,8 +3,8 @@
 #define SZ 4
 
 struct Student{
-        long id;
-        double avg;
+        long id;//student id
+        double avg;//student's average grade
 };
 
 void displayStudent(struct Student s){
