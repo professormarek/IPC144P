@@ -29,6 +29,7 @@ void displayGrades(float gr[]){
 /*
 computes the average grade and stores it in the avg field of the Student argument
 TASK 2: this function doesn't work - what do you have to change here? fix it!
+hint: think back to the examples we did in class this week!
 */
 void computeAverage(float gr[], struct Student s){
         double sum = 0.0;
