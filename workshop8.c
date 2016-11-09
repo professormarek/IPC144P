@@ -14,6 +14,8 @@ void displayStudent(struct Student s){
 /*
 TASK 1:
 change this function signature or header from using array[] notation to using pointer * notation
+this demonstrates that you understand that those two syntaxes are actually the same thing
+this is because arrays are always passed by reference.
 hint: you only need to change the funciton header
 */
 void displayGrades(float gr[]){
@@ -70,5 +72,13 @@ make sure you create a typescript showing:
 1) your code (use cat)
 2) your code compiling (use clang)
 3) the correct output when you run your compiled program (a.out)
+*/
+
+/*
+Challenge (no marks for this):
+create an editGrades function that accepts an array of grades as an argument
+you can use either pointer * or array [] notation, it's up to you.
+let the user input new grades for each position in the array.
+For extra fun, pass the array size from main as an int instead of using SZ
 */
 
