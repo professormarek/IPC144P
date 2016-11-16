@@ -22,7 +22,7 @@ int main(void){
 	int myInt = 0;
 	char delimeter = 0;
 	float myFloat = 0;
-	//let's get the user to input a integer and a floating point number separated by a colon ';'
+	//let's get the user to input a integer and a floating point number separated by a colon ':'
 	do{
 		printf("Enter an integer and a floating point number separated by a colon ");
 		count = scanf("%d%c%f", &myInt, &delimeter, &myFloat);
