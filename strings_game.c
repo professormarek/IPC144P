@@ -20,6 +20,7 @@ cheat: by entering a secret character name, the hero will get a lot stronger!
 
 //function prototypes (headers)
 void enterHeroName(char name[], int maxLength);
+void displayWelcomeScreen(char monsterName[]);
 
 int main(void){
 	//think about what pieces of information we need to represent as variables:
@@ -28,13 +29,45 @@ int main(void){
 	const int heroNameArrayLength =  MAX_HERO_NAME_LENGTH + 1;
 	char heroName[heroNameArrayLength] = "DEFAULT NAME";	
 
+	//variables to store the hero's HP and the monster's HP
+	int heroHP = 15;
+	int monsterHP = 20;
+
+	//variables to store the amount of damage the hero and monster do each hit
+	int heroDamage = 7;
+	int monsterDamage = 5;
+
+	//display a welcome screen before asking for the hero name
+	displayWelcomeScreen(monsterName);
+
 	enterHeroName(heroName, heroNameArrayLength);
 
 	//debug statement to determine whether the name was entered correctly
 	printf("DEBUG: user entered: %s number of characters in the name: %d\n", heroName, strlen(heroName) );
 
+	//a loop to run the battle until one character runs out of HP
+	while (heroHP > 0 && monsterHP > 0) {
+		//the hero hits the monster
+		monsterHP = monsterHP - heroDamage;
+		printf("%s hit the %s for %d damage!!!\n",heroName, monsterName, heroDamage);
+		printf("The %s's remaining HP is: %d\n",monsterName, monsterHP);
+		//if the monster still alive the monster hits the hero
+		if(monsterHP > 0){
+			heroHP = heroHP - monsterDamage;
+			printf("The %s hit %s for %d damage!!!!\n", monsterName, heroName, monsterDamage);
+			printf("%s's remaining HP is: %d\n", heroName, heroHP);
+		}
+	}
+
+
 	return 0;
 }
+
+void displayWelcomeScreen(char monsterName[]){
+	printf("Welcome. It's 8 AM on Thursday. It's time to do battle with %s\n", monsterName);
+
+}
+
 
 void enterHeroName(char name[], int maxLength){
 	//eventually use the maxLength to limit the number of characters entered
@@ -43,3 +76,4 @@ void enterHeroName(char name[], int maxLength){
 	scanf("%12[^\n]", name);
 	
 }
+
