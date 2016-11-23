@@ -11,6 +11,9 @@ damage is subtracted from the appropriate character's HP
 the winner will be the character with HP > 0
 
 cheat: by entering a secret character name, the hero will get a lot stronger!
+as a class we decided to give the hero extra health as the cheat
+feel free to do your own thing at home!
+
 */
 
 #include <stdio.h>
@@ -34,7 +37,8 @@ int main(void){
 	//have enough space for the maximum hero name length + 1 for the terminating null
 	const int heroNameArrayLength =  MAX_HERO_NAME_LENGTH + 1;
 	char heroName[heroNameArrayLength] = "DEFAULT NAME";	
-
+	//stores the secret cheat code name
+	char cheatCode[]= "Google";
 	//variables to store the hero's HP and the monster's HP
 	int heroHP = 15;
 	int monsterHP = 24;
@@ -49,6 +53,12 @@ int main(void){
 	displayWelcomeScreen(monsterName);
 
 	enterHeroName(heroName, heroNameArrayLength);
+	//check to see if the player has entered the secret code
+	//if so, boost the player's health	
+	if(strcmp(heroName,cheatCode) == 0){
+		printf("CHEAT CODE ACTIVATED!!!\n");
+		heroHP += 10;
+	}
 
 	//debug statement to determine whether the name was entered correctly
 	//printf("DEBUG: user entered: %s number of characters in the name: %d\n", heroName, strlen(heroName) );
