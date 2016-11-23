@@ -15,6 +15,8 @@ cheat: by entering a secret character name, the hero will get a lot stronger!
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define MAX_HERO_NAME_LENGTH 12
 
@@ -23,6 +25,9 @@ void enterHeroName(char name[], int maxLength);
 void displayWelcomeScreen(char monsterName[]);
 
 int main(void){
+	//call the srand() function and seed the random number genrator with the time
+	//that way each time we run the program, the numbers popping out will be different
+	srand(time(NULL));
 	//think about what pieces of information we need to represent as variables:
 	char monsterName[] = "ULI101 Monster";
 	//have enough space for the maximum hero name length + 1 for the terminating null
@@ -31,12 +36,14 @@ int main(void){
 
 	//variables to store the hero's HP and the monster's HP
 	int heroHP = 15;
-	int monsterHP = 20;
+	int monsterHP = 24;
 
 	//variables to store the amount of damage the hero and monster do each hit
 	int heroDamage = 7;
-	int monsterDamage = 5;
+	int monsterDamage = 4;
 
+	int randomNumber = 0;
+	int computedDamage = 0;
 	//display a welcome screen before asking for the hero name
 	displayWelcomeScreen(monsterName);
 
@@ -44,17 +51,21 @@ int main(void){
 
 	//debug statement to determine whether the name was entered correctly
 	printf("DEBUG: user entered: %s number of characters in the name: %d\n", heroName, strlen(heroName) );
-
+	
 	//a loop to run the battle until one character runs out of HP
 	while (heroHP > 0 && monsterHP > 0) {
 		//the hero hits the monster
-		monsterHP = monsterHP - heroDamage;
-		printf("%s hit the %s for %d damage!!!\n",heroName, monsterName, heroDamage);
+		randomNumber = rand () % 3;
+		computedDamage = (heroDamage + randomNumber);
+		monsterHP = monsterHP - computedDamage; 
+		printf("%s hit the %s for %d damage!!!\n",heroName, monsterName, computedDamage);
 		printf("The %s's remaining HP is: %d\n",monsterName, monsterHP);
 		//if the monster still alive the monster hits the hero
 		if(monsterHP > 0){
-			heroHP = heroHP - monsterDamage;
-			printf("The %s hit %s for %d damage!!!!\n", monsterName, heroName, monsterDamage);
+			randomNumber = rand() % 5;
+			computedDamage = (monsterDamage + randomNumber);
+			heroHP = heroHP - computedDamage;
+			printf("The %s hit %s for %d damage!!!!\n", monsterName, heroName, computedDamage);
 			printf("%s's remaining HP is: %d\n", heroName, heroHP);
 		}
 	}
