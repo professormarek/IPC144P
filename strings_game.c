@@ -51,8 +51,10 @@ int main(void){
 	enterHeroName(heroName, heroNameArrayLength);
 
 	//debug statement to determine whether the name was entered correctly
-	printf("DEBUG: user entered: %s number of characters in the name: %d\n", heroName, strlen(heroName) );
-	
+	//printf("DEBUG: user entered: %s number of characters in the name: %d\n", heroName, strlen(heroName) );
+	printf("PREPARE TO DO BATTLE WITH THE EXAM\n\n");
+	printf("Press enter to begin\n");
+	clrBuf();
 	//a loop to run the battle until one character runs out of HP
 	while (heroHP > 0 && monsterHP > 0) {
 		//the hero hits the monster
@@ -75,7 +77,16 @@ int main(void){
 		}
 	}
 
-
+	//announce a winner!
+	if(heroHP > 0){
+		//the hero won
+		printf( "%s lives to see another day!!!\n\n", heroName );
+	} else {
+		//the monster won
+		printf("%s has slain %s. %s died with honor!!!\n\n", monsterName, heroName, heroName);
+	}
+	
+	printf("\n\nGAME OVER\n");
 	return 0;
 }
 
