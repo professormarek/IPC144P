@@ -23,6 +23,7 @@ cheat: by entering a secret character name, the hero will get a lot stronger!
 //function prototypes (headers)
 void enterHeroName(char name[], int maxLength);
 void displayWelcomeScreen(char monsterName[]);
+void clrBuf(void);
 
 int main(void){
 	//call the srand() function and seed the random number genrator with the time
@@ -60,6 +61,8 @@ int main(void){
 		monsterHP = monsterHP - computedDamage; 
 		printf("%s hit the %s for %d damage!!!\n",heroName, monsterName, computedDamage);
 		printf("The %s's remaining HP is: %d\n",monsterName, monsterHP);
+		printf("Press enter to continue.\n");
+		clrBuf();
 		//if the monster still alive the monster hits the hero
 		if(monsterHP > 0){
 			randomNumber = rand() % 5;
@@ -67,6 +70,8 @@ int main(void){
 			heroHP = heroHP - computedDamage;
 			printf("The %s hit %s for %d damage!!!!\n", monsterName, heroName, computedDamage);
 			printf("%s's remaining HP is: %d\n", heroName, heroHP);
+			printf("Press enter to continue.\n");
+			clrBuf();
 		}
 	}
 
@@ -85,6 +90,11 @@ void enterHeroName(char name[], int maxLength){
 	//for now, we will hard-code a literal format
 	printf("What is your name, brave hero? ");
 	scanf("%12[^\n]", name);
+	clrBuf();
 	
 }
 
+void clrBuf(void){
+	while(getchar() != '\n') /*do nothing */ ;
+
+}
