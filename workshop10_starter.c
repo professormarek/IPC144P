@@ -11,7 +11,7 @@ int main(void){
 	printf("default name is: %s\n", name);
 
 	printf("Enter a name 100 characters or less: ");
-	/*TODO: read up to 100 characters or until the newline is encountered*/
+	/*TODO: read up to 100 characters into the input string or until the newline is encountered*/
 
 	/*TODO: change the condition to ensure that there is enough space in the name string to copy the input string.*/
 	if( 1 ){
