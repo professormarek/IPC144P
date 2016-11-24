@@ -91,6 +91,7 @@ int main(void){
 	if(heroHP > 0){
 		//the hero won
 		printf( "%s lives to see another day!!!\n\n", heroName );
+		//TODO: insert treasure code
 	} else {
 		//the monster won
 		printf("%s has slain %s. %s died with honor!!!\n\n", monsterName, heroName, heroName);
